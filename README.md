@@ -1,5 +1,7 @@
 # React Native APP Chatbot 🤖
 
+Currently it's in-progress.....
+
 This is a React Native chatbot application that integrates with OpenAI's API for intelligent conversations. The app is built using Expo and React Native, with TypeScript, and connects to a NestJS backend for handling AI interactions.
 
 ## Features
