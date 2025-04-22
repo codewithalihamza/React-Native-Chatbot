@@ -1,5 +1,9 @@
-// This file is used to define the types for the app.
-// enum APP_TYPES {
-//   HOME = "home",
-//   SETTINGS = "settings",
-// }
+export interface ChatCompletionMessage {
+    prompt: string;
+    sessionId?: string | null;
+}
+
+export interface Message {
+    role: "user" | "assistant";
+    content: string;
+}
