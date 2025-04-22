@@ -31,8 +31,9 @@ export const ChatInput = ({
       <TouchableOpacity
         onPress={onSend}
         disabled={disabled || !value.trim()}
-        className={`w-10 h-10 rounded-full items-center justify-center ${disabled || !value.trim() ? "bg-gray-300" : "bg-blue-500"
-          }`}
+        className={`w-10 h-10 rounded-full items-center justify-center ${
+          disabled || !value.trim() ? "bg-gray-300" : "bg-blue-500"
+        }`}
       >
         <Ionicons
           name="send"

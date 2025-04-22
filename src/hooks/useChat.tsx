@@ -8,7 +8,9 @@ export const useChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [streamingMessage, setStreamingMessage] = useState<Message | null>(null);
+  const [streamingMessage, setStreamingMessage] = useState<Message | null>(
+    null,
+  );
 
   const handleSendMessage = async () => {
     if (!input.trim() || loading) return;
@@ -28,14 +30,17 @@ export const useChat = () => {
       const batchSize = 3;
 
       for (let i = 0; i < chars.length; i += batchSize) {
-        await new Promise(resolve => setTimeout(resolve, 10));
+        await new Promise((resolve) => setTimeout(resolve, 10));
         const batch = chars.slice(i, i + batchSize).join("");
-        setStreamingMessage(prev =>
-          prev ? { ...prev, content: prev.content + batch } : null
+        setStreamingMessage((prev) =>
+          prev ? { ...prev, content: prev.content + batch } : null,
         );
       }
 
-      setMessages(prev => [...prev, { role: "assistant", content: aiResponse }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: aiResponse },
+      ]);
       setStreamingMessage(null);
     } catch (error) {
       console.error("Error sending message:", error);
